@@ -4,7 +4,7 @@ import sys
 #import datetime
 import dda_line_drawing_algo as lineAlgo
 
-pixels = {'x' : 50 , 'y' : 50 , 'fill' : " ", 'linefill' : '.'}
+pixels = {'x' : 50 , 'y' : 50 , 'fill' : "O", 'linefill' : ' '}
 
 def checkBoundaries(point_list):
     isCrossing = False
