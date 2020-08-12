@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import sys
 
 class Point :
     def __init__(self,x,y):
@@ -40,11 +41,17 @@ def dda_algorithm():
     #STEP 5
     x = p1.x
     y = p1.y
+    point_list = []
+    print("| x | y |")
+    print("-"*9)
     for i in range(0,steps+1):
         #putpixel( round(x) , round(y) )
-        print(round(x),round(y))
+        print("|"+str(round(x)).center(3)+"|"+str(round(y)).center(3)+"|")
+        point_list.append((round(x),round(y)))
         x += x_inc
         y += y_inc
+    return point_list
 
 if __name__ == "__main__" :
-    dda_algorithm()
+    point_list = dda_algorithm()
+    sys.exit(0)
