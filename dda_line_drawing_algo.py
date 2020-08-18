@@ -17,9 +17,9 @@ def inputPointValues():
 
 #DDA ALGORITHM
 
-def dda_algorithm():
+def dda_algorithm(points):
     #STEP 1
-    points = inputPointValues()
+    #points = inputPointValues()
     p1 = Point(points[0],points[1])
     p2 = Point(points[2],points[3])
     getDifference = lambda x1,x2 : x2 -x1
@@ -53,5 +53,6 @@ def dda_algorithm():
     return point_list
 
 if __name__ == "__main__" :
-    point_list = dda_algorithm()
+    points = inputPointValues()
+    point_list = dda_algorithm(points)
     sys.exit(0)

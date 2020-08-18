@@ -14,20 +14,20 @@ def bresenham_algorithm(points):
     p2 = lineAlgo.Point(points[2],points[3])
 
     # STEP 2
-    dx = p2.x - p1.x
-    dy = p2.y - p1.y
+    dx = abs(p2.x - p1.x)
+    dy = abs(p2.y - p1.y)
 
-    if abs(dx) > abs(dy) :
-        steps = abs(dx)
+    if dx > dy :
+        steps = dx
     else :
-        steps = abs(dy)
+        steps = dy
 
     # STEP 3
     x,y = p1.x,p1.y
     pk = (dy*2) - dx
     print("| x | y |")
     print("-"*9)
-    for _ in range(0,steps+1):
+    for _ in range(0,steps + 1):
         point_list.append((x,y))
         print("|" + str(x).center(3)+"|"+str(y).center(3)+"|")
         if pk >= 0 :

@@ -2,7 +2,8 @@
 
 import sys
 #import datetime
-import dda_line_drawing_algo as lineAlgo
+import dda_line_drawing_algo as ddaLineAlgo
+import bresenham_line_drawing_algo as bresenhamLineAlgo
 
 pixels = {'x' : 50 , 'y' : 50 , 'fill' : "O", 'linefill' : ' '}
 
@@ -16,7 +17,6 @@ def checkBoundaries(point_list):
 filename = r"line"
 
 def draw(filename,point_list):
-    #point_list = lineAlgo.dda_algorithm()
 
     with open(filename,"w") as drawfile:
         for c in range(0,pixels['x']):
@@ -29,10 +29,22 @@ def draw(filename,point_list):
 
 if __name__ == "__main__":
     point_list = []
-    if int(sys.argv[1]) :
-        for i in range(1,int(sys.argv[1])+1):
-            print(f"LINE {i} : ")
-            point_list += lineAlgo.dda_algorithm()
+    number_of_lines = int(sys.argv[1])
+    default_algo = "D"
+    if sys.argv[2]:
+        selected_algo = sys.argv[2]
+    else : selected_algo = default_algo
+
+    if selected_algo :
+        if selected_algo == "D" :
+            for i in range(1,number_of_lines+1):
+                print(f"LINE {i} : ")
+                point_list += ddaLineAlgo.dda_algorithm(ddaLineAlgo.inputPointValues())
+        if selected_algo == "B" :
+            for i in range(1,number_of_lines+1):
+                print(f"LINE {i} : ")
+                point_list += bresenhamLineAlgo.bresenham_algorithm(ddaLineAlgo.inputPointValues())
+
     if not checkBoundaries(point_list):
         draw(filename,point_list)
         sys.exit(0)
